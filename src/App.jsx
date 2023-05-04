@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import SignUp from './components/signup'
 import SignInSide from './components/signin'
 import Navbar from './Navbar'
+import ToDo from './Views/ToDo'
 
 
 export default class App extends Component {
@@ -13,6 +14,8 @@ export default class App extends Component {
         <Routes>
           <Route path='/signup' element = {<SignUp />} />
           <Route path='/signin' element = {<SignInSide />} />
+          <Route path='/todo' element = {<ToDo />} />
+
 
 
           {/* <SignUp />
