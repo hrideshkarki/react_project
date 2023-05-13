@@ -1,27 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import SignUp from './components/signup'
 import SignInSide from './components/signin'
-import Navbar from './Navbar'
+// import Navbar from './components/Navbar'
 import ToDo from './Views/ToDo'
+import Navbar from './Navbar'
 
+export default function App() {
 
-export default class App extends Component {
-  render() {
+  const [user, setUser] = useState({})
+
+  const logMeIn = (user) => {
+    // this.setState({user: user})
+    setUser(user)
+  };
+  const logMeOut = () => {
+    // this.setState({user:{}})
+    setUser({})
+  };
+  // create a function that routes somewhere...
+
     return (
-      <React.Fragment>
-                  <Navbar />
+      <>
+                  <Navbar user={user} logMeOut = {logMeOut}/>
         <Routes>
           <Route path='/signup' element = {<SignUp />} />
-          <Route path='/signin' element = {<SignInSide />} />
+          {/* <Route path="/" element={<Home/>}/> */}
+          <Route path='/signin' element = {<SignInSide logMeIn={logMeIn} />} />
+          {/* <Route path='/to-do' element={<Todo/>}/> */}
           <Route path='/todo' element = {<ToDo />} />
-
-
-
-          {/* <SignUp />
-          <SignInSide /> */}
+          {/* <Route path='/products' element={<Products user={user}/>}/> */}
+          {/* <Route path='/products/:productId' element={<SingleProduct user={user}/>}/> */}
+          {/* <Route path='/cart' element={<Cart user={user}/>}/> */}
         </Routes>
-      </React.Fragment>
+        </>
     )
   }
-}

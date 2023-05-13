@@ -1,9 +1,6 @@
-//i tried to do it yesterday but wasn't finished
-
-
 import React, { Component } from 'react'
 
-export default class   extends Component {
+export default class Home extends Component {
     constructor() {
         super();
         this.state = {
@@ -12,7 +9,7 @@ export default class   extends Component {
     }
 
     showArticles = () => {
-        // return this.state.articles.map(a => <div key = {a.title}> {a.title}</div>)
+        // return this.state.articles.map(a => <div key = {a.title}> {a.title}</div>) 
     };
 
     getFootball = async () => {
@@ -24,7 +21,7 @@ export default class   extends Component {
               'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
             }
           };
-          
+         
           try {
               const response = await axios.request(options);
               const data = response.json();
